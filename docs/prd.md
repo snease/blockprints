@@ -162,8 +162,8 @@ This allows users to escape predefined shapes while remaining within the system.
 
 - Users can produce complex diagrams that would be unwieldy in existing tools.
 - Diagrams remain readable despite high information density.
-- Advanced users can deeply customize diagrams without forking the system.
-- The tool feels closer to an **EDA framework for diagrams** than a traditional diagram editor.
+- Advanced users can deeply customize diagrams without forking the system (e.g., layout, routing, styling).
+- The tool provides a **full-stack API** from primitives to domain-specific abstractions.
 
 ---
 
