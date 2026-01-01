@@ -5,17 +5,17 @@
 ## 1. Overview
 
 ### 1.1 Purpose
-The goal of this project is to build a diagramming tool that is powerful, programmable, and highly customizable. It gives users an unprecedented amount of control over their diagrams, while also having sensible defaults. The system targets engineers, researchers, and technical users who require precise control over diagram structure (placement, routing, layout etc), styling, and semantics beyond what typical diagram tools provide.
+The goal of this project is to build a diagramming tool that is powerful, programmable, and highly customizable while still providing sensible defaults. It targets technical users who require precise control over diagram structure (placement, routing, layout), styling, and semantics beyond what typical diagram tools provide.
 
-The tool is intended to function as a full-stack diagram ecosystem, spanning low-level drawing primitives through multiple abstraction layers up to high-level diagram constructs, with user control available at every layer. We plan to take advantage of the open-source ecosystem and use existing drawing libraries where we can. We care much more about the final tool than the fancy technology used to create it.
+The tool is intended to function as a full-stack diagram ecosystem, spanning low-level drawing primitives through multiple abstraction layers up to high-level diagram constructs, with user control available at every layer. We plan to take advantage of the open-source ecosystem and use existing drawing libraries where we can. We prioritize the capabilities of the final tool over specific implementation choices.
 
 ---
 
 ## 2. Target Users
 
-- Engineers (especially VLSI / SoC / hardware designers)
+- Engineers (hardware, software, systems)
 - Researchers and scientists
-- Software architects
+- Software architects / systems engineers
 - Educators creating conceptual or algorithmic diagrams
 - Advanced technical users comfortable with code-based workflows
 
@@ -24,8 +24,8 @@ The tool is intended to function as a full-stack diagram ecosystem, spanning low
 ## 3. Core Use Cases
 
 - Conceptual diagrams for algorithms and scientific ideas
-- VLSI / SoC block diagrams and architectural overviews
-- Hierarchical system diagrams with reusable, parameterized components
+- Software and hardware architecture block diagrams and overviews (e.g., systems, SoC)
+- Hierarchical system diagrams with reusable, parameterized components across projects
 - Diagrams that evolve iteratively as ideas or designs mature
 - Domain-specific diagram extensions (future)
 
@@ -33,12 +33,17 @@ The tool is intended to function as a full-stack diagram ecosystem, spanning low
 
 ## 4. Key Product Values
 
-- Programmability: diagrams are described using Python code
+- Programmability: diagrams are described as code
 - Layered abstraction: users can operate at any abstraction level, from primitives to high-level constructs.
 - Customization: users can deeply customize behavior and appearance without breaking the system model.
 - Extensibility: the system should support new domains, diagram types, and user-defined primitives.
-- Co-existence with manual drawing. The system should enable users to provide their own custom drawings/blocks that can be parameterized and imported into the system.
-- Standing on giants' shoulders: the tool should reuse open-source solutions / ideas / standards wherever possible
+- Co-existence with manual drawing: users can mix programmatic diagrams with hand-drawn elements.
+
+### 4.1 Technical Direction (Non-binding)
+- Primary authoring API is Python
+- Reuse existing open-source drawing/layout libraries where practical
+- Support importing custom drawings and promoting them to parameterized blocks
+- Favor open standards and reusable ideas where applicable
 
 ---
 
