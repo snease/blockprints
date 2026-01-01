@@ -115,6 +115,7 @@ This allows users to escape predefined shapes while remaining within the system.
 ### 5.6 Automation and Behavior Attachment
 
 - Users can attach automation or parameters to API objects (including imported SVGs), enabling parameterized variants (e.g., `num_columns` on a grid-like object).
+- The API should provide transformation functions that let users map parameters to structural or visual changes in diagram elements.
 - Automation may influence:
   - Layout
   - Routing
