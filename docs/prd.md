@@ -158,7 +158,7 @@ This allows users to escape predefined shapes while remaining within the system.
 
 ---
 
-## 8. Success Criteria
+## 7. Success Criteria
 
 - Users can produce complex diagrams that would be unwieldy in existing tools.
 - Diagrams remain readable despite high information density.
@@ -167,9 +167,4 @@ This allows users to escape predefined shapes while remaining within the system.
 
 ---
 
-## 9. Open Questions
-
-- Supported input formats for custom drawings (SVG, PNG, others)
-- Output formats and rendering backends
-- Performance targets for large diagrams
 
