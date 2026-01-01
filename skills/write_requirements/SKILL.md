@@ -1,8 +1,8 @@
 ---
 name: write_requirements
-description: Propose and apply section-by-section requirement edits using a diff tool that supports colored output and safe replacements.
+description: Propose and apply section-by-section requirement edits
 metadata:
-  short-description: Write requirements with colored diffs and safe replacements
+  short-description: Write requirements with simple before/after deltas
 ---
 
 # Write Requirements
@@ -11,21 +11,16 @@ Use this skill when the user asks to edit requirements or PRDs with iterative, s
 
 ## Workflow
 
-1) Extract the exact original text to replace.
-2) Draft the replacement text.
-3) Run the diff tool in **propose** mode to show a colored diff.
-4) Wait for user approval.
-5) Run the diff tool in **replace** mode to apply the change.
+Phase 1: Conceptual feedback
+1) Review the section and provide numbered, high-level, architectural/conceptual feedback.
+2) Iterate with the user until the conceptual feedback is aligned and approved.
 
-## Tool
-
-Use the script:
-
-- `scripts/write_requirements.py <path> <original_text> <replacement_text> <propose|replace>`
-
-Behavior:
-- `propose`: print ANSI-colored unified diff.
-- `replace`: validate the original text exists, then replace it once and write to file.
+Phase 2: Detailed edits
+3) Extract the exact original text to replace.
+4) Draft the replacement text based on the approved conceptual direction.
+5) Present easy-to-see differences using a numbered before → after list of changes.
+6) Wait for user approval.
+7) Apply the change after approval.
 
 ## Notes
 
