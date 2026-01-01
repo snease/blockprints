@@ -50,17 +50,18 @@ The tool is intended to function as a full-stack diagram ecosystem, spanning low
 ## 5. Functional Requirements
 
 ### 5.1 Diagram Description
-- Diagrams are defined programmatically using Python.
+- Diagrams are defined programmatically using Python and must render deterministically.
 - The API supports:
   - Declarative specification of structure
   - Parameterization of components
+  - Deterministic outputs (same input → same output)
   - Reuse and composition of diagram elements
 
 ---
 
 ### 5.2 Multi-Layer Architecture
 
-The system shall provide multiple, explicit abstraction layers, including but not limited to:
+The system shall provide multiple, explicit abstraction layers (examples below; not exhaustive):
 
 - Low-level primitives (potentially using an existing framework):
   - Shapes, paths, ports, anchors
@@ -100,8 +101,8 @@ Users must be able to override or customize behavior at any layer.
 
 ### 5.5 Custom User-Defined Drawings
 
-- Users can import external drawings (e.g., images or vector shapes).
-- Imported drawings can be promoted to **first-class blocks**.
+- Users can import external drawings (SVG as primary format; others TBD).
+- Imported drawings are exposed as **first-class API objects**.
 - Custom blocks must support:
   - Ports and anchors
   - Layout and routing participation
@@ -113,9 +114,7 @@ This allows users to escape predefined shapes while remaining within the system.
 
 ### 5.6 Automation and Behavior Attachment
 
-- Users can attach automation or logic to diagram elements, including:
-  - Custom blocks
-  - Imported drawings
+- Users can attach automation or parameters to API objects (including imported SVGs), enabling parameterized variants (e.g., `num_columns` on a grid-like object).
 - Automation may influence:
   - Layout
   - Routing
@@ -131,6 +130,20 @@ This allows users to escape predefined shapes while remaining within the system.
   - Component-level overrides
   - Instance-level overrides
 - Visualization must clearly convey structure, hierarchy, and connectivity.
+
+---
+
+### 5.8 Validation and Error Reporting
+
+- The system must validate constraints, layout conflicts, and invalid structures.
+- Errors should be actionable and point to the responsible element or rule.
+
+---
+
+### 5.9 Input and Output Formats
+
+- SVG is the primary input and output format.
+- Other formats are TBD and not required for v1.
 
 ---
 
