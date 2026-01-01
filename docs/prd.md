@@ -36,7 +36,8 @@ The tool is intended to function as a full-stack diagram ecosystem, spanning low
 - Programmability: diagrams are described as code
 - Layered abstraction: users can operate at any abstraction level, from primitives to high-level constructs.
 - Customization: users can deeply customize behavior and appearance without breaking the system model.
-- Extensibility: the system should support new domains, diagram types, and user-defined primitives.
+- Extensibility: the system should support new domains, diagram types, user-defined primitives, and layout/routing strategies.
+- Domain-agnostic: the system does not assume a single domain (e.g., Gantt charts, schematics, network diagrams).
 - Co-existence with manual drawing: users can mix programmatic diagrams with hand-drawn elements.
 
 ### 4.1 Technical Direction (Non-binding)
@@ -154,16 +155,6 @@ This allows users to escape predefined shapes while remaining within the system.
 - Built-in editor or viewer tools
 - Real-time collaborative editing
 - Interactive or animated presentations
-
----
-
-## 7. Extensibility Requirements
-
-- Clear APIs for adding:
-  - New diagram types
-  - New layout or routing strategies
-  - Domain-specific abstractions
-- The system should not assume a single domain (e.g., only software or only hardware).
 
 ---
 
