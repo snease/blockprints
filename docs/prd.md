@@ -151,8 +151,9 @@ This allows users to escape predefined shapes while remaining within the system.
 ## 6. Non-Goals (Initial Scope)
 
 - WYSIWYG, mouse-driven diagram editing
+- Built-in editor or viewer tools
 - Real-time collaborative editing
-- Animation
+- Interactive or animated presentations
 
 ---
 
