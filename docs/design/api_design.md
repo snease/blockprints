@@ -83,9 +83,22 @@ conn.route("orthogonal")
 alu.pin(x=100, y=200)
 ```
 
+### Layout and Routing Strategies
+
+The API exposes strategy selection and per‑connection overrides.
+
+```python
+diagram.layout("hierarchical", direction="LR")
+diagram.route("orthogonal")
+
+conn = diagram.connect(alu.out, reg.in_)
+conn.route("spline")
+conn.avoid([cache, bus])
+```
+
 ### Constraints, Pinning, and Locking
 
-Constraints express layout relationships while still allowing auto‑layout.
+Non‑overlap is the default; users can explicitly allow overlap when needed.
 
 ```python
 # Pin a block at a fixed position
@@ -97,6 +110,9 @@ alu.lock(width=True, height=True)
 # Relative constraints
 diagram.align(alu, reg, axis="y")
 diagram.spacing(alu, reg, gap=20)
+
+# Default is no-overlap; allow overlap explicitly
+diagram.allow_overlap([annotation, highlight_box])
 ```
 
 ### Bus
@@ -126,6 +142,14 @@ svg_obj = svg.import_file("icons/adder.svg")
 adder = Block.from_svg(svg_obj, name="Adder")
 adder.add_port("in_a").at("left", y=10)
 adder.add_port("out").at("right", y=10)
+```
+
+### SVG Export
+
+SVG export preserves geometry, ports, and styling.
+
+```python
+diagram.export_svg("out.svg")
 ```
 
 ### Parameter + Transform
@@ -164,6 +188,15 @@ alu.style(fill="lightgray")
 alu.out.style(color="red")
 ```
 
+### Styling: Themes and Inheritance
+
+Styles inherit from global → block → instance unless overridden.
+
+```python
+diagram.theme("clean")
+alu.style(stroke_width=2)
+```
+
 ### Validation and Errors
 
 Validation runs during compilation; errors should surface actionable information tied to elements.
@@ -186,6 +219,15 @@ Users can register new diagram types or layout/routing strategies.
 
 ```python
 diagram.register_layout("custom", custom_layout_fn)
+```
+
+### Custom Diagram Types
+
+Users can define domain‑specific diagram types by subclassing Diagram.
+
+```python
+class GanttDiagram(Diagram):
+    pass
 ```
 
 ## Open Questions
