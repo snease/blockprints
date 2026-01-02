@@ -100,6 +100,50 @@ This document describes the proposed **hybrid internal representation (IR) pipel
 - JSON‑like snapshots per layer (stable ordering)
 - Used for determinism tests and regression diffs
 
+### Schema Shape (Draft)
+
+- **Semantic layer**: blocks[], connections[], ports[], attributes{}, hierarchy{}
+- **Layout IR**: vars[], constraints[], routes[], metadata{}
+- **Render layer**: shapes[], connectors[], groups[], styles{}
+## Determinism and Regression Testing
+
+### Determinism Rules
+
+- Stable IDs at all layers.
+- Stable ordering of blocks, connections, and constraints.
+- Deterministic layout/routing strategies (no randomness unless seeded deterministically).
+
+### Test Strategy
+
+- **IR snapshots:** serialize each layer and compare against golden files.
+- **SVG goldens:** render and compare canonical SVG outputs.
+- **Change detection:** regression diffs on IR + SVG with stable ordering.
+
+### Layout/Routing Integration Tests
+
+- Pinned vs auto‑layout coexistence.
+- Non‑overlap defaults with explicit allow‑overlap.
+- Hierarchical sub‑diagram layout stability.
+
+## Validation and Error Model
+
+### Error Types
+
+- **Structural**: missing ports, invalid connections, cyclic constraints.
+- **Layout**: unsatisfied constraints, overlaps when not allowed.
+- **Routing**: unreachable ports, routing conflicts.
+- **Render**: invalid geometry or export failures.
+
+### Error Shape
+
+- id, type, severity (error/warning), message
+- element_ref (block/connection/port id)
+- layer (semantic/layout/render)
+
+### Behavior
+
+- Validation runs during compilation.
+- Errors are actionable and point to the responsible element/rule.
 ## Ports & Anchors
 
 **Concept:** ports are semantic connection points; anchors are concrete geometric points derived during layout/rendering.
