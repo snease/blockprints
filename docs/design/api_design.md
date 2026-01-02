@@ -83,6 +83,22 @@ conn.route("orthogonal")
 alu.pin(x=100, y=200)
 ```
 
+### Constraints, Pinning, and Locking
+
+Constraints express layout relationships while still allowing auto‑layout.
+
+```python
+# Pin a block at a fixed position
+alu.pin(x=100, y=200)
+
+# Lock size but allow position to move
+alu.lock(width=True, height=True)
+
+# Relative constraints
+diagram.align(alu, reg, axis="y")
+diagram.spacing(alu, reg, gap=20)
+```
+
 ### Bus
 
 Represents a multi-port connection (many-to-many).
